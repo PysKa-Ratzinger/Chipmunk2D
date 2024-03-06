@@ -292,8 +292,17 @@ cpBool cpSpaceArbiterSetFilter(cpArbiter *arb, cpSpace *space);
 void cpSpaceFilterArbiters(cpSpace *space, cpBody *body, cpShape *filter);
 
 void cpSpaceActivateBody(cpSpace *space, cpBody *body);
-void cpSpaceLock(cpSpace *space);
-void cpSpaceUnlock(cpSpace *space, cpBool runPostStep);
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+CP_EXPORT void cpSpaceLock(cpSpace *space);
+CP_EXPORT void cpSpaceUnlock(cpSpace *space, cpBool runPostStep);
+
+#ifdef __cplusplus
+}
+#endif
 
 static inline void
 cpSpaceUncacheArbiter(cpSpace *space, cpArbiter *arb)
